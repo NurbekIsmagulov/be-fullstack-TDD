@@ -1,5 +1,4 @@
 from unittest import TestCase
-
 import find_min as f
 
 

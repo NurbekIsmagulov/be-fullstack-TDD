@@ -1,29 +1,35 @@
 def get_max(a, b):
-    pass
+    return a if a > b else b
 
 
 def get_max_without_arguments():
-    pass
+    raise TypeError("Can not get max without arguments.")
 
 
 def get_max_with_one_argument(a):
-    pass
+    return a
 
 
 def get_max_with_many_arguments(*args):
-    pass
+    return max(args)
 
 
 def get_max_with_one_or_more_arguments(first, *args):
-    pass
+    return max(first, max(args))
 
 
 def get_max_bounded(*args, low, high):
-    pass
-
+    max_number = float('-inf')
+    for arg in args:
+        if arg > max_number and low < arg < high:
+            max_number = arg
+    return max_number
 
 def make_max(*, low, high):
     def inner(first, *args):
-        pass
-
+        max_number = float('-inf')
+        for arg in (first,) + args:
+            if arg > max_number and low < arg < high:
+                max_number = arg
+        return max_number
     return inner
